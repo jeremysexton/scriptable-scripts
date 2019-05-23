@@ -15,3 +15,5 @@ Search for a movie and the script will return a table with scores from a variety
 * IMDB Average
 
 If any of those ratings are unavailable, they should not display.
+
+As of May 23, the table now also displays runtime in the header. While the new Apple TV app interface saves on clicks, I miss being able to check the runtime of a movie in my library before I start playing it. Figured this script was as good a place as any to accomplish that.
