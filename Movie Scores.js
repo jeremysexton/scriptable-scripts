@@ -52,7 +52,7 @@ let posterURL = tmdbImgFront + movie["poster_path"];
 var table = new UITable();
 var titleRow = new UITableRow();
 titleRow.isHeader;
-titleRow.addText(movie["title"] + " (" + year + ")").centerAligned();
+titleRow.addText(movie["title"] + " (" + year + ")", runtimeToString(movie.runtime)).centerAligned();
 table.addRow(titleRow);
 var posterRow = new UITableRow();
 posterRow.addImageAtURL(posterURL).centerAligned();
@@ -65,3 +65,23 @@ for (i in outputRatings) {
 }
 
 table.present();
+
+
+function runtimeToString(runtime) {
+	var hours = Math.floor(runtime / 60);
+	var minutes = runtime % 60;
+	if (hours == 1) {
+		var hourText = `${hours} hour, `;
+	} else if (hours > 1) {
+		var hourText = `${hours} hours, `;
+	} else {
+		var hourText = ``;
+	}
+	if (minutes == 1) {
+		var minuteText = `${minutes} minute`;
+	} else {
+		var minuteText = `${minutes} minutes`;
+	}
+	var timeString = hourText + minuteText;
+	return timeString;
+}
